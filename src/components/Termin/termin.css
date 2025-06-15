@@ -1,0 +1,173 @@
+/* Основные стили */
+.terms-container {
+  width: 1400px;
+  margin-left: 14rem;
+  padding: 30px;
+  background: rgba(20, 20, 20, 0.97);
+  color: #d0d0d0;
+  min-height: 100vh;
+}
+
+.terms-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+}
+
+.terms-header h1 {
+  font-size: 2.2rem;
+  color: #c0c0c0;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+}
+
+.terms-search input {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #0a0a0a;
+  border: 1px solid #333;
+  color: #d0d0d0;
+  border-radius: 4px;
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.terms-search input:focus {
+  outline: none;
+  border-color: #8b0000;
+  box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2);
+}
+
+/* Двухколоночный макет */
+.terms-content-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+.terms-sidebar {
+  width: 250px; /* или любая другая ширина по вашему выбору */
+  height: calc(100vh - 150px); /* или другая высота, учитывая ваш header */
+  overflow-y: auto; /* включает вертикальный скроллбар при необходимости */
+  position: sticky;
+  top: 20px; /* отступ сверху */
+  padding-right: 10px; /* чтобы контент не прилипал к скроллбару */
+}
+
+.terms-sidebar h3 {
+  color: #8b0000;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.terms-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.terms-sidebar li {
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
+  color: #b0b0b0;
+}
+
+.terms-sidebar li:hover {
+  background: rgba(139, 0, 0, 0.2);
+  color: #d0d0d0;
+}
+
+.terms-sidebar li.active {
+  background: rgba(139, 0, 0, 0.4);
+  color: #fff;
+  font-weight: bold;
+}
+
+.terms-main-content {
+  flex: 1;
+  
+}
+
+/* Стили для контента терминов */
+.term-details h2 {
+  color: #8b0000;
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+.term-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  
+  text-align: justify;
+  position: relative;
+  padding-left: 20px;
+}
+
+.term-content p::before {
+  content: "■";
+  position: absolute;
+  left: 0;
+  color: #8b0000;
+  font-size: 12px;
+  top: 7px;
+}
+
+/* Стили для результатов поиска */
+.search-results h2 {
+  color: #b0b0b0;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.term-item {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.term-item h3 {
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.term-item p {
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .terms-content-wrapper {
+    flex-direction: column;
+  }
+  
+  .terms-sidebar {
+    flex: 1;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .terms-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.term-details, .search-results {
+  animation: fadeIn 0.4s ease-out;
+}
